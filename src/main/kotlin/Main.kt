@@ -1,6 +1,6 @@
 @file:Suppress("UNUSED_PARAMETER")
 
-package PS_TEMPLATE_BASE_PACKAGE_NAME
+package flavor.pie.shulkershell
 
 import flavor.pie.kludge.*
 import ninja.leaping.configurate.commented.CommentedConfigurationNode
@@ -33,11 +33,11 @@ class Main @Inject constructor(
 ) {
 
     companion object {
-        const val ID = "PS_TEMPLATE_PLUGIN_ID"
-        const val NAME = "PS_TEMPLATE_PLUGIN_NAME"
-        const val VERSION = "PS_TEMPLATE_VERSION"
-        const val AUTHOR = "PS_TEMPLATE_USER_NAME"
-        const val DESCRIPTION = "PS_TEMPLATE_PLUGIN_DESCRIPTION"
+        const val ID = "shulkershell"
+        const val NAME = "ShulkerShell"
+        const val VERSION = "0.1.0"
+        const val AUTHOR = "pie_flavor"
+        const val DESCRIPTION = "An alternative, shell-based command system."
     }
 
     @[Listener PublishedApi]
