@@ -7,6 +7,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "5.0.0"
     id("flavor.pie.promptsign") version "1.1.0"
     id("maven-publish")
+    id("net.minecrell.licenser") version "0.4.1"
 }
 
 group = "flavor.pie"
@@ -96,17 +97,21 @@ publishing {
             }
         }
         repositories {
-            maven {
-                val spongePublishingUri: String by project
-                val spongePublishingUsername: String by project
-                val spongePublishingPassword: String by project
-                url = uri(spongePublishingUri)
-                credentials {
-                    username = spongePublishingUsername
-                    password = spongePublishingPassword
+            val githubToken: String? by project
+            if (githubToken != null) {
+                maven {
+                    url = uri("https://maven.pkg.github.com/pie-flavor/ShulkerShell")
+                    credentials {
+                        username = "pie-flavor"
+                        password = githubToken
+                    }
                 }
             }
         }
     }
 }
 
+license {
+    header = project.file("HEADER.txt")
+    exclude("**/*.conf")
+}
